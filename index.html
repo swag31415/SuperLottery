@@ -13,12 +13,26 @@
 
 <body>
   <insert-html link="https://swag31415.github.io/Portfolio/inserts/menu.html"></insert-html>
-  <main class="container">
-    <!-- TODO Add body -->
+  <canvas id="confetti-canvas"></canvas>
+  <main id="app" class="container">
+    <h1 class="title">SuperLottery</h1>
+    <button v-if="state == 'init'" @click="start()" class="start-button">Play very fast!! Very fun!!</button>
+    <h1 class="bobly">Winning Numbers</h1>
+    <div class="numbers">
+      <div v-for="n in winning_nums" v-text="n"></div>
+    </div>
+    <h1 class="bobly">Your Numbers</h1>
+    <div class="numbers">
+      <div v-for="n in our_nums" v-text="n"></div>
+    </div>
+    <button v-if="state == 'playing'" @click="win()" class="make-me-win-button">Make me win</button>
+    <button v-if="state == 'done'" @click="again()" class="start-button">Play Again!! So Amazing!!</button>
   </main>
   <insert-html link="https://swag31415.github.io/Portfolio/inserts/foot.html"></insert-html>
   <!-- HTML Inserts -->
   <script src="https://swag31415.github.io/Portfolio/js/html_inserts.js"></script>
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3.2.37/dist/vue.global.prod.js"></script>
   <!-- Our Scripts -->
   <script src="js/main.js"></script>
 </body>
