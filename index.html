@@ -26,6 +26,62 @@
     </div>
     <button v-if="state == 'playing'" @click="win()" class="make-me-win-button">Make me win</button>
     <button v-if="state == 'done'" @click="again()" class="start-button">Play Again!! So Amazing!!</button>
+    <!-- Test area -->
+    <div class="stats-container" v-if="(state == 'playing') || (state == 'done')">
+      <h2 class="stats-title">Stats</h2>
+      <div class="stats-column">
+        <div class="stats-row">
+          <div class="stat-label">Plays per Second</div>
+          <div class="stat-value" v-text="simp_num(stats.plays_per_second)"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">Plays</div>
+          <div class="stat-value" v-text="simp_num(stats.plays)"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">3 Number Matches</div>
+          <div class="stat-value" v-text="simp_num(stats._3_number_matches)"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">4 Number Matches</div>
+          <div class="stat-value" v-text="simp_num(stats._4_number_matches)"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">5 Number Matches</div>
+          <div class="stat-value" v-text="simp_num(stats._5_number_matches)"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">Wins</div>
+          <div class="stat-value" v-text="simp_num(stats.wins)"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">Real Wins</div>
+          <div class="stat-value" v-text="simp_num(stats.real_wins)"></div>
+        </div>
+      </div>
+      <div class="stats-column">
+        <div class="stats-row">
+          <div class="stat-label">Cost per Second</div>
+          <div class="stat-value" v-text="money(simp_num(stats.cost_per_second))"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">Total Cost</div>
+          <div class="stat-value" v-text="money(simp_num(stats.total_cost))"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">Total Won</div>
+          <div class="stat-value" v-text="money(simp_num(stats.total_won))"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">Cost to Won ratio</div>
+          <div class="stat-value" v-text="stats.cost_to_won_ratio"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-label">Time Spent Here</div>
+          <div class="stat-value" v-text="time_since(stats.time_started)"></div>
+        </div>
+      </div>
+    </div>
   </main>
   <insert-html link="https://swag31415.github.io/Portfolio/inserts/foot.html"></insert-html>
   <!-- HTML Inserts -->
